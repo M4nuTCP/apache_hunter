@@ -35,6 +35,12 @@ apache_hunter_daemon.sh es una herramienta escrita en Bash que organiza y report
 
 Lo que hace esta herramienta es recopilar estos registros y almacenarlos en directorios bien organizados, facilitando la gestión de los datos. Además, genera una interfaz web visual que permite filtrar y analizar de manera más eficiente los registros maliciosos que llegan a tu página web, ofreciendo una forma intuitiva de monitorear las amenazas.
 
+Se recomienda abrir el puerto para visualizar la página web de la siguiente forma, de manera que su acceso se limite exclusivamente a la red interna.
+
+```bash
+ python3 -m http.server 8000 --bind 127.0.0.1
+```
+
 ![image](https://github.com/user-attachments/assets/5539efa6-7f21-4237-869b-fd58e5a0d4d7)
 
 ![image](https://github.com/user-attachments/assets/c80775b7-063e-465e-8ee4-8ca2212fae60)
