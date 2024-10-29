@@ -3,15 +3,15 @@
 LOG_FILE="/var/log/apache2/access.log"
 BASE_DIR="/var/log/apache2/apache_hunter"
 SITE_DIR="${BASE_DIR}/site"
-WHITELIST_ALL_FILE="${BASE_DIR}/whitelist_all.txt"
+BLACKLIST_ALL_FILE="${BASE_DIR}/blacklist_all.txt"
 
 mkdir -p "$SITE_DIR"
 mkdir -p "${BASE_DIR}/reports"
-touch "$WHITELIST_ALL_FILE"
+touch "$BLACKLIST_ALL_FILE"
 
 REPORT_JSON="${SITE_DIR}/report.json"
 EVIL_LOGS_JSON="${SITE_DIR}/evil_logs.json"
-WHITELIST_JSON="${SITE_DIR}/whitelist.json"
+BLACKLIST_JSON="${SITE_DIR}/blacklist.json"
 
 if [[ ! -f "$REPORT_JSON" ]]; then
     echo '[]' > "$REPORT_JSON"
@@ -21,8 +21,8 @@ if [[ ! -f "$EVIL_LOGS_JSON" ]]; then
     echo '[]' > "$EVIL_LOGS_JSON"
 fi
 
-if [[ ! -f "$WHITELIST_JSON" ]]; then
-    echo '[]' > "$WHITELIST_JSON"
+if [[ ! -f "$BLACKLIST_JSON" ]]; then
+    echo '[]' > "$BLACKLIST_JSON"
 fi
 
 declare -A ATTACK_PATTERNS=(
@@ -87,7 +87,7 @@ monitorizar_logs() {
     mkdir -p "$report_dir"
 
     REPORTE_FILE="${report_dir}/reporte.txt"
-    WHITELIST_FILE="${report_dir}/whitelist.txt"
+    BLACKLIST_FILE="${report_dir}/blacklist.txt"
     EVIL_LOGS_FILE="${report_dir}/evil_logs.txt"
 
     declare -A IP_REGISTRADAS
@@ -114,11 +114,11 @@ monitorizar_logs() {
                 echo "$line" >> "$EVIL_LOGS_FILE"
 
                 if [[ -z "${IP_REGISTRADAS["$ip"]}" ]]; then
-                    echo "$ip" >> "$WHITELIST_FILE"
+                    echo "$ip" >> "$BLACKLIST_FILE"
                     IP_REGISTRADAS["$ip"]=1
-                    if ! grep -q "^$ip$" "$WHITELIST_ALL_FILE"; then
-                        echo "$ip" >> "$WHITELIST_ALL_FILE"
-                        jq --arg ip "$ip" '. += [$ip]' "$WHITELIST_JSON" > "${WHITELIST_JSON}.tmp" && mv "${WHITELIST_JSON}.tmp" "$WHITELIST_JSON"
+                    if ! grep -q "^$ip$" "$BLACKLIST_ALL_FILE"; then
+                        echo "$ip" >> "$BLACKLIST_ALL_FILE"
+                        jq --arg ip "$ip" '. += [$ip]' "$BLACKLIST_JSON" > "${BLACKLIST_JSON}.tmp" && mv "${BLACKLIST_JSON}.tmp" "$BLACKLIST_JSON"
                     fi
                 fi
                 break
