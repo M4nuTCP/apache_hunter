@@ -7,9 +7,9 @@
 - **Herramienta 2: apache_hunter_daemon.sh**: Un script de monitorización en tiempo real que detecta patrones de actividad maliciosa en los logs, genera reportes detallados y ofrece una visualización interactiva mediante un sitio HTML.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/8ce0c1ed-f7dc-4f4e-94ae-1472f2089d30" alt="image" width="300">
+  <img src="https://github.com/user-attachments/assets/7c4bf0b9-f403-4b1a-8ecb-4941af798f2a" alt="image" width="300">
 </p>
-  
+
 ## apache_hunter.sh
 
 apache_hunter.sh sirve para analizar registros de acceso de Apache, permitiendo filtrar y extraer información según rangos de fechas, direcciones IP, y códigos de estado HTTP. Además, ofrece un resumen de accesos por IP y códigos, y la posibilidad de guardar o comprimir los resultados. Es útil para monitorear y auditar la actividad en un servidor web.
