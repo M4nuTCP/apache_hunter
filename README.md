@@ -1,6 +1,5 @@
 # apache_hunter
 
-## Descripción General
 
 **Apache Hunter** es un conjunto de herramientas diseñadas para monitorizar y analizar los logs de un servidor Apache. Proporciona dos scripts principales:
 
