@@ -41,7 +41,7 @@ Se recomienda abrir el puerto para visualizar la página web de la siguiente for
  python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-![image](https://github.com/user-attachments/assets/5539efa6-7f21-4237-869b-fd58e5a0d4d7)
+![image](https://github.com/user-attachments/assets/8b2c0fd1-431d-47f3-aeb8-503de6317a35)
 
 ![image](https://github.com/user-attachments/assets/c80775b7-063e-465e-8ee4-8ca2212fae60)
 
